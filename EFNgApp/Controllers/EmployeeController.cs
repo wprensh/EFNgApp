@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using MoviesContext.Transversal.Clases;
+using MoviesContext.Transversal.Interfaces;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using EFNgApp.Interfaces;
-using EFNgApp.Models;
-using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,7 +23,23 @@ namespace EFNgApp.Controllers
         {
             return objemployee.GetAllEmployees();
         }
-
+        /// <summary>
+        /// Send tblEmployee object         
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///{
+        ///  "employeeId": 0,
+        ///  "name": "string",
+        ///  "city": "string",
+        ///  "department": "string",
+        ///  "gender": "string"
+        ///}
+        ///
+        /// </remarks>
+        /// <param name="employee"></param>
+        /// <returns></returns>
         [HttpPost]
         [Route("Create")]
         public int Create([FromBody] TblEmployee employee)
@@ -41,9 +54,26 @@ namespace EFNgApp.Controllers
             return objemployee.GetEmployeeData(id);
         }
 
+        /// <summary>
+        /// Send tblEmployee object         
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///{
+        ///  "employeeId": 0,
+        ///  "name": "string",
+        ///  "city": "string",
+        ///  "department": "string",
+        ///  "gender": "string"
+        ///}
+        ///
+        /// </remarks>
+        /// <param name="employee"></param>
+        /// <returns></returns>
         [HttpPut]
         [Route("Edit")]
-        public int Edit([FromBody]TblEmployee employee)
+        public int Edit([FromBody] TblEmployee employee)
         {
             return objemployee.UpdateEmployee(employee);
         }
