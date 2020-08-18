@@ -1,0 +1,181 @@
+USE [master]
+GO
+ALTER DATABASE [Peliculas] SET COMPATIBILITY_LEVEL = 100
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [Peliculas].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [Peliculas] SET ANSI_NULL_DEFAULT OFF
+GO
+ALTER DATABASE [Peliculas] SET ANSI_NULLS OFF
+GO
+ALTER DATABASE [Peliculas] SET ANSI_PADDING OFF
+GO
+ALTER DATABASE [Peliculas] SET ANSI_WARNINGS OFF
+GO
+ALTER DATABASE [Peliculas] SET ARITHABORT OFF
+GO
+ALTER DATABASE [Peliculas] SET AUTO_CLOSE OFF
+GO
+ALTER DATABASE [Peliculas] SET AUTO_CREATE_STATISTICS ON
+GO
+ALTER DATABASE [Peliculas] SET AUTO_SHRINK OFF
+GO
+ALTER DATABASE [Peliculas] SET AUTO_UPDATE_STATISTICS ON
+GO
+ALTER DATABASE [Peliculas] SET CURSOR_CLOSE_ON_COMMIT OFF
+GO
+ALTER DATABASE [Peliculas] SET CURSOR_DEFAULT  GLOBAL
+GO
+ALTER DATABASE [Peliculas] SET CONCAT_NULL_YIELDS_NULL OFF
+GO
+ALTER DATABASE [Peliculas] SET NUMERIC_ROUNDABORT OFF
+GO
+ALTER DATABASE [Peliculas] SET QUOTED_IDENTIFIER OFF
+GO
+ALTER DATABASE [Peliculas] SET RECURSIVE_TRIGGERS OFF
+GO
+ALTER DATABASE [Peliculas] SET  DISABLE_BROKER
+GO
+ALTER DATABASE [Peliculas] SET AUTO_UPDATE_STATISTICS_ASYNC OFF
+GO
+ALTER DATABASE [Peliculas] SET DATE_CORRELATION_OPTIMIZATION OFF
+GO
+ALTER DATABASE [Peliculas] SET TRUSTWORTHY OFF
+GO
+ALTER DATABASE [Peliculas] SET ALLOW_SNAPSHOT_ISOLATION OFF
+GO
+ALTER DATABASE [Peliculas] SET PARAMETERIZATION SIMPLE
+GO
+ALTER DATABASE [Peliculas] SET READ_COMMITTED_SNAPSHOT OFF
+GO
+ALTER DATABASE [Peliculas] SET HONOR_BROKER_PRIORITY OFF
+GO
+ALTER DATABASE [Peliculas] SET  READ_WRITE
+GO
+ALTER DATABASE [Peliculas] SET RECOVERY FULL
+GO
+ALTER DATABASE [Peliculas] SET  MULTI_USER
+GO
+ALTER DATABASE [Peliculas] SET PAGE_VERIFY CHECKSUM
+GO
+ALTER DATABASE [Peliculas] SET DB_CHAINING OFF
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'Peliculas', N'ON'
+GO
+USE [Peliculas]
+GO
+/****** Object:  Table [dbo].[Pelicula]    Script Date: 07/07/2014 13:09:59 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Pelicula](
+	[Codigo_Pel] [int] NOT NULL,
+	[Titulo_Pel] [nvarchar](50) NOT NULL,
+	[Director_Pel] [nvarchar](50) NOT NULL,
+	[Genero_Pel] [nvarchar](50) NOT NULL,
+	[Anio_Pel] [int] NOT NULL,
+	[Cantidad_Pel] [int] NOT NULL,
+	[Precio_Pel] [int] NOT NULL,
+ CONSTRAINT [PK_Pelicula] PRIMARY KEY CLUSTERED 
+(
+	[Codigo_Pel] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+INSERT [dbo].[Pelicula] ([Codigo_Pel], [Titulo_Pel], [Director_Pel], [Genero_Pel], [Anio_Pel], [Cantidad_Pel], [Precio_Pel]) VALUES (1, N'The Dark Knight', N'Christopher Nolan', N'Accion', 2008, 4, 7200)
+INSERT [dbo].[Pelicula] ([Codigo_Pel], [Titulo_Pel], [Director_Pel], [Genero_Pel], [Anio_Pel], [Cantidad_Pel], [Precio_Pel]) VALUES (2, N'The Lord of the Rings: The Return of the King', N'Peter Jackson', N'Aventura', 2003, 3, 6800)
+INSERT [dbo].[Pelicula] ([Codigo_Pel], [Titulo_Pel], [Director_Pel], [Genero_Pel], [Anio_Pel], [Cantidad_Pel], [Precio_Pel]) VALUES (3, N'Star Wars: Episode V - The Empire Strikes Back', N'Irvin Kershner', N'Accion', 1980, 5, 5000)
+INSERT [dbo].[Pelicula] ([Codigo_Pel], [Titulo_Pel], [Director_Pel], [Genero_Pel], [Anio_Pel], [Cantidad_Pel], [Precio_Pel]) VALUES (4, N'Inception', N'Christopher Nolan', N'Accion', 2010, 4, 5500)
+INSERT [dbo].[Pelicula] ([Codigo_Pel], [Titulo_Pel], [Director_Pel], [Genero_Pel], [Anio_Pel], [Cantidad_Pel], [Precio_Pel]) VALUES (5, N'Forrest Gump', N'Robert Zemeckis', N'Drama', 1994, 2, 5000)
+INSERT [dbo].[Pelicula] ([Codigo_Pel], [Titulo_Pel], [Director_Pel], [Genero_Pel], [Anio_Pel], [Cantidad_Pel], [Precio_Pel]) VALUES (6, N'The Lord of the Rings: The Two Towers', N'Peter Jackson', N'Aventura', 2002, 3, 6800)
+INSERT [dbo].[Pelicula] ([Codigo_Pel], [Titulo_Pel], [Director_Pel], [Genero_Pel], [Anio_Pel], [Cantidad_Pel], [Precio_Pel]) VALUES (7, N'Cidade de Deus', N'Fernando Meirelles', N'Drama', 2002, 4, 5500)
+INSERT [dbo].[Pelicula] ([Codigo_Pel], [Titulo_Pel], [Director_Pel], [Genero_Pel], [Anio_Pel], [Cantidad_Pel], [Precio_Pel]) VALUES (8, N'Intouchables', N'Eric Toledano', N'Comedia', 2011, 5, 7200)
+INSERT [dbo].[Pelicula] ([Codigo_Pel], [Titulo_Pel], [Director_Pel], [Genero_Pel], [Anio_Pel], [Cantidad_Pel], [Precio_Pel]) VALUES (9, N'The Dark Knight Rises', N'Christopher Nolan', N'Accion', 2012, 5, 7200)
+INSERT [dbo].[Pelicula] ([Codigo_Pel], [Titulo_Pel], [Director_Pel], [Genero_Pel], [Anio_Pel], [Cantidad_Pel], [Precio_Pel]) VALUES (10, N'Maleficent', N'Robert Stromberg', N'Aventura', 2014, 4, 8000)
+INSERT [dbo].[Pelicula] ([Codigo_Pel], [Titulo_Pel], [Director_Pel], [Genero_Pel], [Anio_Pel], [Cantidad_Pel], [Precio_Pel]) VALUES (11, N'X-Men: Days of Future Past', N'Bryan Singer', N'Accion', 2014, 4, 8000)
+INSERT [dbo].[Pelicula] ([Codigo_Pel], [Titulo_Pel], [Director_Pel], [Genero_Pel], [Anio_Pel], [Cantidad_Pel], [Precio_Pel]) VALUES (12, N'Godzilla', N'Gareth Edwards', N'Ciencia Ficcion', 2014, 4, 8000)
+INSERT [dbo].[Pelicula] ([Codigo_Pel], [Titulo_Pel], [Director_Pel], [Genero_Pel], [Anio_Pel], [Cantidad_Pel], [Precio_Pel]) VALUES (13, N'The Amazing Spider-Man 2', N'Marc Webb', N'Accion', 2014, 4, 8000)
+/****** Object:  Table [dbo].[Cliente]    Script Date: 07/07/2014 13:09:59 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Cliente](
+	[Codigo_Cli] [int] NOT NULL,
+	[Identificacion_Cli] [int] NOT NULL,
+	[Nombre_Cli] [nvarchar](50) NOT NULL,
+	[Apellido_Cli] [nvarchar](50) NOT NULL,
+	[Direccion_Cli] [nvarchar](50) NOT NULL,
+	[Telefono_Cli] [int] NULL,
+	[Correo_Cli] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Clientes] PRIMARY KEY CLUSTERED 
+(
+	[Codigo_Cli] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+CREATE TABLE tblEmployee (  
+EmployeeID int IDENTITY(1,1) NOT NULL PRIMARY KEY,  
+Name varchar(20) NOT NULL ,  
+City varchar(20) NOT NULL ,  
+Department varchar(20) NOT NULL ,  
+Gender varchar(6) NOT NULL   
+)  
+GO  
+  
+CREATE TABLE tblCities (  
+CityID int IDENTITY(1,1) NOT NULL PRIMARY KEY,  
+CityName varchar(20) NOT NULL   
+)  
+GO
+INSERT [dbo].[tblCities] ([CityID], [CityName]) VALUES (1, N'New Delhi')
+INSERT [dbo].[tblCities] ([CityID], [CityName]) VALUES (2, N'Mumbai')
+INSERT [dbo].[tblCities] ([CityID], [CityName]) VALUES (3, N'Hyderabad')
+INSERT [dbo].[tblCities] ([CityID], [CityName]) VALUES (4, N'Chennai')
+INSERT [dbo].[tblCities] ([CityID], [CityName]) VALUES (5, N'Bengaluru')
+SET IDENTITY_INSERT [dbo].[tblCities] OFF
+SET IDENTITY_INSERT [dbo].[tblEmployee] ON 
+
+INSERT [dbo].[tblEmployee] ([EmployeeID], [Name], [City], [Department], [Gender]) VALUES (1, N'Walter', N'Hyderabad', N'aLLA', N'Male')
+INSERT [dbo].[tblEmployee] ([EmployeeID], [Name], [City], [Department], [Gender]) VALUES (3, N'Elsa', N'New Delhi', N'Aqui', N'Female')
+SET IDENTITY_INSERT [dbo].[tblEmployee] OFF
+
+INSERT [dbo].[Cliente] ([Codigo_Cli], [Identificacion_Cli], [Nombre_Cli], [Apellido_Cli], [Direccion_Cli], [Telefono_Cli], [Correo_Cli]) VALUES (1, 12345678, N'David', N'Alvarado', N'Cra 1 # 2 - 4', 3000000, N'dp@hotmail.com')
+INSERT [dbo].[Cliente] ([Codigo_Cli], [Identificacion_Cli], [Nombre_Cli], [Apellido_Cli], [Direccion_Cli], [Telefono_Cli], [Correo_Cli]) VALUES (2, 98765432, N'Anuar', N'Fontalvo', N'Calle 3 # 100 - 12', 3050000, N'afon@aol.com')
+INSERT [dbo].[Cliente] ([Codigo_Cli], [Identificacion_Cli], [Nombre_Cli], [Apellido_Cli], [Direccion_Cli], [Telefono_Cli], [Correo_Cli]) VALUES (3, 1043543043, N'Kevin', N'Gonzalez', N'Cra 34 # 12 - 1', 3010202, N'kevin@apple.com')
+INSERT [dbo].[Cliente] ([Codigo_Cli], [Identificacion_Cli], [Nombre_Cli], [Apellido_Cli], [Direccion_Cli], [Telefono_Cli], [Correo_Cli]) VALUES (4, 8790754, N'Carlos', N'Martinez', N'Calle 21 # 21 - 21', 3020101, N'carlosm@gmail.com')
+INSERT [dbo].[Cliente] ([Codigo_Cli], [Identificacion_Cli], [Nombre_Cli], [Apellido_Cli], [Direccion_Cli], [Telefono_Cli], [Correo_Cli]) VALUES (5, 32212534, N'Einar', N'Raad', N'Calle 65 # 1 - 132 Apto 101', 3220000, N'eraad@gmail.com')
+INSERT [dbo].[Cliente] ([Codigo_Cli], [Identificacion_Cli], [Nombre_Cli], [Apellido_Cli], [Direccion_Cli], [Telefono_Cli], [Correo_Cli]) VALUES (6, 1000022, N'Deimer', N'Villa', N'Cra 0 # 1 - 2', 3000001, N'dvilla@hotmail.com')
+/****** Object:  Table [dbo].[Alquiler]    Script Date: 07/07/2014 13:09:59 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Alquiler](
+	[Codigo_Alq] [int] NOT NULL,
+	[CodigoCliente_Alq] [int] NOT NULL,
+	[NombreCliente_Alq] [nvarchar](50) NOT NULL,
+	[CodigoPelicula_Alq] [int] NOT NULL,
+	[NombrePelicula_Alq] [nvarchar](50) NOT NULL,
+	[FechaAlquiler_Alq] [date] NOT NULL,
+	[FechaDevolucion_Alq] [date] NOT NULL,
+	[CantidadPelicula_Alq] [int] NOT NULL,
+	[TotalAlquiler_Alq] [int] NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Codigo_Alq] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  ForeignKey [FK__Alquiler__Codigo__0519C6AF]    Script Date: 07/07/2014 13:09:59 ******/
+ALTER TABLE [dbo].[Alquiler]  WITH CHECK ADD FOREIGN KEY([CodigoCliente_Alq])
+REFERENCES [dbo].[Cliente] ([Codigo_Cli])
+GO
+/****** Object:  ForeignKey [FK__Alquiler__Codigo__060DEAE8]    Script Date: 07/07/2014 13:09:59 ******/
+ALTER TABLE [dbo].[Alquiler]  WITH CHECK ADD FOREIGN KEY([CodigoPelicula_Alq])
+REFERENCES [dbo].[Pelicula] ([Codigo_Pel])
+GO
